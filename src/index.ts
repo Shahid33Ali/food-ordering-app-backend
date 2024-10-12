@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import "dotenv/config";
 import userRouter from "./routes/MyUserRoutes";
+import restaurantsRouter from "./routes/RestaurantRoute";
 import restaurantRouter from "./routes/MyRestaurantRoute";
 import { v2 as cloudinary } from "cloudinary";
 const app = express();
@@ -21,6 +22,7 @@ app.get("/health", (req: Request, res: Response) => {
 });
 app.use("/api/my/user", userRouter);
 app.use("/api/my/restaurant", restaurantRouter);
+app.use("/api/restaurant", restaurantsRouter);
 app.listen(7000, () => {
   console.log("server started on my port 7000");
 });
